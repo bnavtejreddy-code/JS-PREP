@@ -46,3 +46,5 @@ let wordCount = sentence.split(" ").length;
 console.log("Word Count:", wordCount);
 let charCount = sentence.split('').length;
 console.log("Character Count:", charCount);
+let charcountWithoutSpaces = sentence.replace(/\s/g, '').length;
+console.log("Character Count without spaces:", charcountWithoutSpaces);
