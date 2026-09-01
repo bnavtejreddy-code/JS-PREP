@@ -15,6 +15,7 @@ const person = {
  country : "India",
  isStudent : true
 };
+
 person.age = 19;
 person.country = "US";
 console.log(person.age);
@@ -84,3 +85,5 @@ console.log(findPerson("Navtej"));
 console.log(findPerson("Alex"));
 console.log(findPerson("Man"));
 console.log(findPerson("John"));
+
+
