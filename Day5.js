@@ -32,36 +32,36 @@ console.log(total);
 console.log(avg);
 console.log(maxi);
 
-const students = [
-    { name: "Navtej", marks: 85 },
-    { name: "Alex", marks: 72 },
-    { name: "Sam", marks: 91 },
-    { name: "John", marks: 58 },
-    { name: "Mike", marks: 76 }
-];
+// const students = [
+//     { name: "Navtej", marks: 85 },
+//     { name: "Alex", marks: 72 },
+//     { name: "Sam", marks: 91 },
+//     { name: "John", marks: 58 },
+//     { name: "Mike", marks: 76 }
+// ];
 
 
-const names = students.map(student => student.name);
-console.log("Names:", names);
+// const names = students.map(student => student.name);
+// console.log("Names:", names);
 
 
-const highScorers = students.filter(student => student.marks >= 80);
-console.log("80+:", highScorers);
-
-
-
-const passedStudents = students
-    .filter(student => student.marks >= 60)
-    .map(student => student.name);
-console.log("Passed:", passedStudents);
+// const highScorers = students.filter(student => student.marks >= 80);
+// console.log("80+:", highScorers);
 
 
 
-const totalMarks = students.reduce((sum, student) => {
-    return sum + student.marks;
-}, 0);
-const averageMarks = totalMarks / students.length;
-console.log("Average:", averageMarks);
+// const passedStudents = students
+//     .filter(student => student.marks >= 60)
+//     .map(student => student.name);
+// console.log("Passed:", passedStudents);
+
+
+
+// const totalMarks = students.reduce((sum, student) => {
+//     return sum + student.marks;
+// }, 0);
+// const averageMarks = totalMarks / students.length;
+// console.log("Average:", averageMarks);
 
 
 

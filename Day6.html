@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">Hello World</h1>
+    <button id="btn">Change Text</button>
+
+
+    <h1 id="count">0</h1>
+    <button id="increase">Increase</button>
+    <button id="decrease">Decrease</button>
+    <button id="reset">Reset</button> 
+
+
+    <h1 id="greeting">Hello!</h1>
+    <input id="nameInput" type="text" placeholder="Enter your name">
+    <button id="greetBtn">Greet</button><br><br>
+
+
+    <input id="taskInput" type="text" placeholder="Enter a task">
+    <button id="adddBtn">Add Task</button>
+    <ul id="taskList"></ul><br><br>
+
+
+
+    <h1>Shopping List</h1>
+    <input id="itemInput" type="text" placeholder="Enter item">
+    <button id="addBtn">Add</button>
+    <ul id="itemList"></ul>
+    <p id="total">Total items: 0</p>
+
+
+    <script>
+        const h1 = document.getElementById("title");
+        const butt = document.getElementById("btn");
+        butt.addEventListener("click",function(){
+            h1.innerHTML = "JavaScript is awesome!";
+            h1.style.color = "red";
+            butt.textContent = "Changed!";
+        });
+
+
+        let count = 0;
+        const inc = document.getElementById("increase");
+        inc.addEventListener("click",function(){
+            count++;
+            document.getElementById("count").textContent = count;
+            if(count>=0){
+                document.getElementById("count").style.color="black";
+            }
+        })
+        const dec = document.getElementById("decrease");
+        dec.addEventListener("click",function(){
+            count--;
+            document.getElementById("count").textContent = count;
+            if(count<0){
+                document.getElementById("count").style.color="red";
+            }
+        })
+        const res = document.getElementById("reset");
+        res.addEventListener("click",function(){
+            count = 0;
+            document.getElementById("count").textContent = count;
+            document.getElementById("count").style.color="black";
+        })
+
+
+        const greeting = document.getElementById("greeting");
+        const nameInput = document.getElementById("nameInput");
+        const greetBtn = document.getElementById("greetBtn");
+
+        greetBtn.addEventListener("click", function() {
+            const name = nameInput.value;
+
+            if (name === "") {
+                greeting.textContent = "Please enter your name!";
+            } else {
+                greeting.textContent = `Hello, ${name}! 👋`;
+            }
+        });
+
+
+        const taskInput = document.getElementById("taskInput");
+        const adddBtn = document.getElementById("adddBtn");
+        const taskList = document.getElementById("taskList");
+        adddBtn.addEventListener("click", function() {
+            const task = taskInput.value;
+            if (task === "") {
+                return;
+            }
+            // Create list item
+            const li = document.createElement("li");
+            li.textContent = task + " ";
+            // Create delete button
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            // Delete the task
+            deleteBtn.addEventListener("click", function() {
+                li.remove();
+            });
+            // Add button to list item
+            li.appendChild(deleteBtn);
+            // Add list item to ul
+            taskList.appendChild(li);
+            // Clear input
+            taskInput.value = "";
+        });
+
+
+        const itemInput = document.getElementById("itemInput");
+        const addBtn = document.getElementById("addBtn");
+        const itemList = document.getElementById("itemList");
+        const total = document.getElementById("total");
+
+        function updateTotal() {
+            total.textContent = `Total items: ${itemList.children.length}`;
+        }
+
+        function addItem() {
+            const item = itemInput.value.trim();
+
+            if (item === "") {
+                return;
+            }
+
+            // Create list item
+            const li = document.createElement("li");
+            li.textContent = item + " ";
+
+            // Create delete button
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+
+            // Delete item
+            deleteBtn.addEventListener("click", function() {
+                li.remove();
+                updateTotal();
+            });
+
+            // Add delete button to li
+            li.appendChild(deleteBtn);
+
+            // Add li to list
+            itemList.appendChild(li);
+
+            // Clear input
+            itemInput.value = "";
+
+            // Update count
+            updateTotal();
+        }
+
+        // Add button
+        addBtn.addEventListener("click", addItem);
+
+        // Enter key bonus
+        itemInput.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                addItem();
+            }});
+            
+
+    </script>
+</body>
+</html>
